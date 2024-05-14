@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Tapzi World</title>
+    <link rel ="icon" href="ticon.png">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js" defer></script>
+    <style>
+      /* General styles */
+      @import url('https://fonts.googleapis.com/css2?family=Cabin:wght@600&display=swap');
+
+      
+      body {
+        font-family: 'Open Sans', sans-serif;
+      }
+      
+      h2 {
+        font-size: 1.875em;
+        padding-bottom: 10px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      }
+
+   .navbar {
+  display: flex;
+  justify-content: space-between;
+  justify-content: flex-start; /* change to flex-start to align elements to the left */
+  align-items: center;
+  background-color: #a91717;
+  padding: 20px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.navbar-links ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+}
+
+.navbar-links li {
+  position: relative;
+}
+
+.navbar-links a {
+  color: #333;
+  text-decoration: none;
+  padding: 1rem;
+}
+
+.navbar-links ul li:hover > ul {
+  display: block;
+}
+
+.navbar-links li ul {
+  display: none;
+  position: absolute;
+  left: 0;
+  background: #dadada;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.navbar-links li ul li {
+  display: block;
+  padding: 5px;
+}
+
+.navbar-links li ul li:hover {
+  background: #dadada;
+  cursor: pointer;
+}
+
+.navlogo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80px;
+  height: auto;
+}
+
+.toggle-button {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+}
+
+.toggle-button .bar {
+  width: 20px;
+  height: 3px;
+  background-color: #333;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 10px;
+  }
+
+  .navbar-links {
+    display: none;
+    width: 100%;
+  }
+
+  .navbar-links ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-links li {
+    margin: 10px 0;
+  }
+
+  .toggle-button {
+    display: flex;
+  }
+
+  .navbar-links li ul {
+    position: static;
+    display: none;
+  }
+}
+      
+      /* Hero styles */
+
+      .hero {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 70vh;
+        background-image: url('images/Screenshot (205).png');
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+        color: #ffffff;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .hero::before {
+content: "";
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.5);
+z-index: -1;
+}
+      
+      .hero h2 {
+        font-size: 6rem;
+        font-weight: 600;
+        letter-spacing: 1px;
+      }
+            
+      /* About styles */
+      .about {
+        padding-top: 50px;
+        text-align: center;
+        background-color: #eeeeee;
+      }
+      
+      .about .abouttext {
+        font-size: 1.7rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+        margin-bottom: 20px;
+        font-family:'Nirmala' ;
+      }
+      
+      /* COUNTER */
+.counters {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
+  font-family:'Nirmala';
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.counter-wrapper {
+  width: 32%;
+  height: 9rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  transition: .3s ease-in-out;
+  
+}
+
+.counter-info {
+  color: #000000;
+}
+
+.counter-info h1.counter {
+    font-size: 3rem;
+  font-weight: 550;  color: #000000;
+  font-family: "Nirmala";
+
+}
+
+.counter-info p {
+  font: normal 2.1rem Nirmala;
+  font-weight: 500;  color: #000000;
+  margin-top: .4rem;
+  font-size: 30px;
+  text-shadow: none;
+
+}
+
+/* Latest Uploads */
+.latest-uploads {
+  padding: 50px;
+  background-color: #cacaca;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.latest-uploads h3 {
+  color: #000;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.latest-uploads .uploads-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  order: 4;
+}
+
+.latest-uploads .upload {
+  position: relative; /* Add position relative to contain the filter effect */
+  overflow: hidden;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease-in-out;
+  background-color: #e9e9e9;
+  color: #000;
+  border: 5px solid rgba(197, 197, 197, 0.747);
+}
+
+.latest-uploads .upload:hover {
+  transform: scale(1.1);
+  z-index: 1; /* Bring the hovered upload to the front */
+}
+
+.latest-uploads .upload img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.latest-uploads .upload h4 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+.latest-uploads .upload p {
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-top: 10px;
+  margin-bottom: 14px;
+}
+
+.download-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #464646;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 0 0 0 0;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.download-button:hover {
+  background-color: #7c7c7c;
+}
+  
+/* Footer styles */
+footer {
+  background-color: #555555;
+  color: #fff;
+  padding: 50px;
+  text-align: center;
+  height: 18vh;
+}
+
+footer p {
+font-size: 18px;
+}
+
+.social-icons {
+  margin-bottom: 20px;
+}
+
+.social-icons a {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: #ffffff00;
+  border-radius: 50%;
+  margin-right: 10px;
+  transition: transform 0.2s ease-in-out;
+}
+
+div img {
+    border-radius: 0px;
+}
+.social-icons a:hover {
+  transform: translateY(-5px);
+}
+
+.social-icons a i {
+  font-size: 1.5rem;
+  color: #444444;
+  line-height: 40px;
+  text-align: center;
+}
+
+  /* Animations */
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .hero h2 {
+    text-shadow: rgba(0, 0, 0, 0.298039) 0px 5px 0px;
+    animation: fade-in 1.7s ease-in-out;
+    
+  }
+  
+  .latest-uploads h3 {
+    animation: fade-in 1s ease-in-out;
+    font-size: 50px;
+  }
+  .about h3,
+  .hero p,
+  .about p,
+  
+  .latest-uploads .upload {
+    animation: fade-in 1s ease-in-out;
+    }
+
+.gotoliveries .button {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 4px;
+  background-color: #cacaca;
+  color: #000000;
+  font-size: 16px;
+  text-decoration: none;
+  border: 2px solid rgb(0, 0, 0); /* Add border property with desired thickness and color */
+  transition: background-color 0.3s;
+  box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease-in-out;
+}
+
+.gotoliveries .button:hover {
+    background-color: #cacaca;
+    box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.6);
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+
+}
+
+.gotoliveries {
+    background-color: #cacaca;
+    padding-bottom: 50px;
+    padding-top: 10px;
+}
+    </style>
+ </head>
+  <body>
+    <header>
+        <nav class="navbar">
+            <a href="index.html"><img src="images/logo.png"  width="5%" height="5%" class="navlogo">
+             <a href="" class="toggle-button">
+                 <span class="bar"></span>
+                 <span class="bar"></span>
+                 <span class="bar"></span>
+             </a>
+            <div class="navbar-links">
+                <ul>
+                    <li><a href="liveries.html">Liveries ▼</a>
+                        <ul class="dropdown">
+                         <li><a href="MSFSLiveries.html">MSFS</a></li>
+                         <li><a href="XP.html">X Plane</a></li>
+                        </ul>
+                    </li>
+                 <li><a href="LiveriesStatus.html">Liveries Status</a></li>
+                 <li><a href="construction.html">Livery Request</a></li>
+                 <li><a href="construction.html">Community</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>  
+    <div>
+            <div class="hero">
+                <div>
+                 <h2>Welcome</h2>
+                </div>
+            </div>
+        <section class="latest-uploads">
+            <h3>Latest Liveries</h3> <br>
+            <div class="uploads-container">
+              <div class="upload">
+                <img src="images/Fenix A320/Amsterdam Airlines.png" alt="Amsterdam Airlines">
+                <h4>Amsterdam Airlines</h4>
+                <p>For Fenix A320</p>
+                <a href="https://flightsim.to/file/52624/fenix-airbus-a320-amsterdam-airlines-4k" class="download-button">Download via flightsim.to</a>
+              </div>
+              <div class="upload">
+                <img src="images/Fenix A320/FLYONE Armenia.png" alt="FLYONE Armenia">
+                <h4>FLYONE Armenia</h4>
+                <p>For Fenix A320</p>
+                <a href="https://flightsim.to/file/52555/fenix-airbus-a320-flyone-armenia-4k" class="download-button">Download via flightsim.to</a>
+              </div>
+              <div class="upload">
+                <img src="images/OSPREYASB10.png" alt="Osprey Airways">
+                <h4>Osprey Airways</h4>
+                <p>For Asobo B787-10</p>
+                <a href="https://flightsim.to/file/52453/asobo-boeing-b787-10-osprey-airways-4k" class="download-button">Download via flightsim.to</a>
+              </div>
+            </div>
+        </section>
+        <div class="gotoliveries">
+            <a href="liveries.html" class="button">All Liveries Are Waiting For You Here</a>
+        </div>
+        <div class="about">
+            <h2>About</h2>
+            <p class="abouttext">I am 16 years old from Israel. I love aviation. Making liveries for over 2 years.</p>
+            <div class="counters">
+                <div class="counter-wrapper">
+                    <div class="counter-info">
+                        <h1 class="counter" data-count="183000">0</h1>
+                        <p>Total Downloads</p>
+                    </div>
+                </div>
+                <div class="counter-wrapper">
+                    <div class="counter-info">
+                        <h1 class="counter" data-count="250">0</h1>
+                        <p>Total Liveries I Made</p>
+                    </div>
+                </div>
+                <div class="counter-wrapper">
+                    <div class="counter-info">
+                        <h1 class="counter" data-count="2">0</h1>
+                        <p>Years Of Crating Liveries</p>
+                    </div>
+                </div>
+            </div>
+          <footer>
+            <div class="social-icons">
+              <a href="https://discord.gg/RDmYqRZrqv"><i class="fab fa-discord"><img src="images/Discord.png"></i></a>
+              <a href="https://www.instagram.com/_tapzi_/"><i class="fab fa-instagram"><img src="images/Instagram.png"></i></a>
+              <a href="https://www.youtube.com/channel/UCAGm_ZNkhc2Hx5wbIiB6taA"><i class="fab fa-youtube"><img src="images/YouTube.png"></i></a>
+            </div>
+            <p>Copyright © 2023 Tapzi - All Rights Reserved.</p>
+          </footer>
+          
+        </body>
+      </html>
