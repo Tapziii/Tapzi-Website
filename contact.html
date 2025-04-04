@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Custom Liveries</title>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- For Icons -->
+    <style>
+
+        /* General Styling */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Palanquin Dark', sans-serif;
+            background: #0a0a0a;
+            color: white;
+            overflow-x: hidden;
+            transition: background 0.5s ease-in-out;
+        }
+    
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('imgs/Osprey.png') no-repeat center center/cover;
+        }
+    
+        /* Parallax Effect */
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 30vh;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #0a0a0a 100%);
+        }
+    
+        /* Wavy Divider */
+        .divider {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            background-size: contain;
+            z-index: 2;
+        }
+    
+        /* Request Section - Ensures a Smooth Fade In */
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    
+        .hero h1 {
+            font-size: 3.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.63);
+        }
+    
+        .hero p {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 10px auto;
+            text-shadow: 0 0 20px rgba(0, 0, 0, 0.63);
+        }
+    
+        .cta {
+            background: #a91717;
+            padding: 15px 35px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            color: white;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 20px;
+        }
+    
+        .cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 14px rgba(255, 71, 71, 0.4);
+        }
+    
+        /* Request Sections */
+        .request-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-right: 10%;
+            padding-left: 10%;
+            position: relative;
+            overflow: hidden;
+        }
+    
+        .request-panel {
+            flex: 1;
+            position: relative;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+    
+        .request-panel h2 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+    
+        .request-panel p {
+            font-size: 1.2rem;
+            max-width: 500px;
+            line-height: 1.5;
+        }
+    
+        .request-panel img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 15px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+    
+        .request-panel:hover img {
+            transform: scale(1.05);
+        }
+    
+        /* Floating Background Text */
+        .floating-text {
+            position: absolute;
+            font-size: 5rem;
+            font-weight: bold;
+            opacity: 0.08;
+            z-index: -1;
+            text-transform: uppercase;
+            transition: transform 0.5s ease-in-out;
+        }
+    
+        .floating-text-left {
+            left: -10%;
+            top: 20%;
+            transform: rotate(-10deg);
+        }
+    
+        .floating-text-right {
+            right: -10%;
+            bottom: 20%;
+            transform: rotate(10deg);
+        }
+    
+        /* Alternating Sections */
+        .request-section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+    
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px;
+            background: #111;
+        }
+    
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+    
+        .social-links a:hover {
+            color: #a91717;
+        }
+    
+        /* Paper Airplane Animation */
+        .paper-airplane-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+        }
+    
+        .paper-airplane {
+            display: flex;
+            justify-content: center;
+            margin: 40px auto; /* Adds spacing between sections */
+            width: 30%; /* Adjust size */
+            cursor: pointer;
+    
+            /* Floating animation */
+            animation: float 3s ease-in-out infinite;
+        }
+    
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px); /* Moves up slightly */
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    
+        .paper-airplane img {
+            width: 100%;
+            height: auto;
+        }
+    
+        .paper-airplane:hover {
+            transform: scale(1.2);
+        }
+    
+        .icons-container {
+            position: relative; /* Ensures icons stay in the right area */
+            width: 100%;
+            overflow: visible;
+        }
+    
+    /* Popup Overlay (Dark Background) */
+    .popup-overlay {
+        display: none; /* Initially hidden */
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 999;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    /* Show Popup */
+    .popup-overlay.show {
+        display: flex; /* Only shows when JavaScript adds "show" */
+    }
+    /* Popup Box */
+    .popup {
+        background: white;
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        color: black;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Center content */
+        align-items: center;
+    }
+    
+    .popup h2 {
+        margin: 0 0 5px;
+        font-size: 25px; /* Slightly smaller */
+    }
+    
+    .popup p {
+        margin-bottom: 20px;
+        font-size: 20px;
+    }
+    
+    /* Download Button */
+    .popup-btn {
+        display: inline-block;
+        padding: 8px 12px;
+        background: #a91717;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 17px;
+    }
+    
+    .popup-btn:hover {
+        background: #871414;
+    }
+    
+    /* Close Button */
+    .popup-close {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        background: none;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+    }
+    
+    /* Show Popup */
+    .show {
+        display: flex; /* Ensure proper display */
+    }
+    
+    
+            /* Container for Icons */
+            .svg-container {
+                position: relative; 
+                width: 100%;
+                overflow: hidden;
+            }
+    
+            /* Randomly Positioned Icons */
+            .svg-icon {
+                position: absolute;
+                opacity: 0.7;
+                color: rgba(179, 179, 179, 0.24);
+                transition: transform 0.3s ease-in-out;
+            }
+    
+            .svg-icon:hover {
+                transform: scale(1.2);
+            }
+    
+        @keyframes airplane-fly {
+            0% {
+                transform: translateX(-10px) rotate(0deg);
+            }
+            50% {
+                transform: translateX(10px) rotate(5deg);
+            }
+            100% {
+                transform: translateX(-10px) rotate(0deg);
+            }
+        }
+    
+        @keyframes plane-fly {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    
+    
+        </style>
+</head>
+<body>
+
+    <header>
+        <h1>Contact Me</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="request.html">Request</a>
+        </nav>
+    </header>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="section-subtitle">Have a question or a livery request? Drop me a message!</p>
+            
+            <form action="#" method="POST" class="contact-form">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+
+                <div class="input-group">
+                    <i class="fas fa-comment-alt"></i>
+                    <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+                </div>
+
+                <button type="submit" class="cta-button">Send Message</button>
+            </form>
+
+            <div class="social-icons">
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+                <a href="https://yourlink.com" target="_blank"><i class="fas fa-link"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Custom Livery Designs</p>
+    </footer>
+
+</body>
+</html>

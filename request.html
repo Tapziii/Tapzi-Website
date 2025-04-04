@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Livery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Palanquin+Dark" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+    /* General Styling */
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Palanquin Dark', sans-serif;
+        background: #0a0a0a;
+        color: white;
+        overflow-x: hidden;
+        transition: background 0.5s ease-in-out;
+    }
+
+    /* Hero Section */
+    .hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: url('imgs/Osprey.png') no-repeat center center/cover;
+    }
+
+    /* Parallax Effect */
+    .hero::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30vh;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #0a0a0a 100%);
+    }
+
+    /* Wavy Divider */
+    .divider {
+        position: relative;
+        width: 100%;
+        height: 150px;
+        background-size: contain;
+        z-index: 2;
+    }
+
+    /* Request Section - Ensures a Smooth Fade In */
+    .show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-shadow: 0 0 20px rgba(0, 0, 0, 0.63);
+    }
+
+    .hero p {
+        font-size: 1.4rem;
+        max-width: 700px;
+        margin: 10px auto;
+        text-shadow: 0 0 20px rgba(0, 0, 0, 0.63);
+    }
+
+    .cta {
+        background: #a91717;
+        padding: 15px 35px;
+        font-size: 1.2rem;
+        border-radius: 30px;
+        color: white;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        margin-top: 20px;
+    }
+
+    .cta:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 14px rgba(255, 71, 71, 0.4);
+    }
+
+    /* Request Sections */
+    .request-section {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-right: 10%;
+        padding-left: 10%;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .request-panel {
+        flex: 1;
+        position: relative;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .request-panel h2 {
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+
+    .request-panel p {
+        font-size: 1.2rem;
+        max-width: 500px;
+        line-height: 1.5;
+    }
+
+    .request-panel img {
+        width: 200%;
+        max-width: 800px;
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .request-panel:hover img {
+        transform: scale(1.05);
+    }
+
+    /* Floating Background Text */
+    .floating-text {
+        position: absolute;
+        font-size: 5rem;
+        font-weight: bold;
+        opacity: 0.08;
+        z-index: -1;
+        text-transform: uppercase;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .floating-text-left {
+        left: -10%;
+        top: 20%;
+        transform: rotate(-10deg);
+    }
+
+    .floating-text-right {
+        right: -10%;
+        bottom: 20%;
+        transform: rotate(10deg);
+    }
+
+    /* Alternating Sections */
+    .request-section:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+
+        /* Container for Icons */
+        .svg-container {
+    position: relative; /* Ensure icons are positioned relative to this container */
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+        /* Randomly Positioned Icons */
+        .svg-icon {
+            position: absolute;
+            opacity: 0.7;
+            color: rgba(179, 179, 179, 0.24);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .svg-icon:hover {
+            transform: scale(1.2);
+        }
+
+    @keyframes airplane-fly {
+        0% {
+            transform: translateX(-10px) rotate(0deg);
+        }
+        50% {
+            transform: translateX(10px) rotate(5deg);
+        }
+        100% {
+            transform: translateX(-10px) rotate(0deg);
+        }
+    }
+
+    @keyframes plane-fly {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0px); }
+    }
+    .form-h2 {
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      align-content: center
+    }
+    h4 {
+      margin-top: -10px;
+      margin-bottom: 30px;
+      font-weight: lighter;
+    }
+
+.cta-button:active {
+    transform: scale(0.95);
+}
+
+    </style>
+</head>
+<body onload="placeIcons()">
+
+<header>
+  <nav>
+    <a href="index.html">
+        <img src="imgs/logo.png" alt="Tapzi Logo" class="nav-logo">
+    </a>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="contact.html">Contact</a>
+</nav>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div>
+        <h1>Request a Livery</h1>
+        <p>Handcrafted liveries made with precision, detail, and creativity.</p>
+        <div class="cta-button-container">
+          <a href="#request-section" class="cta-button">Get Started</a>
+        </div>   
+    </div>
+</section>
+<!-- Container where icons will be placed -->
+<div class="svg-container" id="iconContainer">
+ <!-- Real Livery Request -->
+ <section class="request-section" id="request-section">
+    <div class="request-panel">
+        <h2>Real Livery Request</h2>
+        <p>Do you want an accurate real-world airline livery for MSFS or X Plane?<br> I specialize in recreating liveries as close to reality as possible, including:  <br>
+        - **Retired or Historic Liveries**  <br>
+        - **Current Liveries**  <br>
+        - **Special Liveries**  <br>
+        If you want to request a real livery, fill the form below
+      </p>
+    </div>
+    <div class="request-panel">
+        <img src="imgs/KOREAN.png" alt="Real Livery">
+    </div>
+ </section>
+ <form
+ action="https://formspree.io/f/mgvanldw"
+ method="POST"
+ enctype="multipart/form-data" >
+ <h2 class="form-h2">Real Livery Request Form</h2><br>
+
+ <label for="simulator">Simulator: <span class="required">*</span></label><br>
+ <select name="Simulator" id="simulator" required>
+  <option value="MSFS 2020">MSFS 2020</option>
+  <option value="MSFS 2024">MSFS 2024</option>
+  <option value="X Plane">X Plane</option>
+</select><br><br>
+
+ <label for="developer">Aircraft Developer: <span class="required">*</span></label><br>
+ <select name="Developer" id="developer" required>
+  <option value="Fenix">Fenix</option>
+  <option value="PMDG">PMDG</option>
+  <option value="iniBuilds">iniBuilds</option>
+  <option value="FlyByWire">FlyByWire</option>
+  <option value="iFly">iFly</option>
+  <option value="FlightSim Studio">FlightSim Studio</option>
+  <option value="Horizon Simulations">Horizon Simulations</option>
+  <option value="Asobo">Asobo</option>
+  <option value="Headwind Simulations">Headwind Simulations</option>
+  <option value="FlightFactor">FlightFactor</option>
+  <option value="X-Works">X-Works</option>
+  <option value="Laminar">Laminar</option>
+  <option value="LevelUp">LevelUp</option>
+  <option value="Zibo">Zibo</option>
+
+
+</select><br><br>
+
+ <label for="aircraft">Aircraft Type: <span class="required">*</span></label><br>
+ <input type="text" id="aircraft" name="Aircraft" placeholder="E.g. Boeing 737-700, Airbus A350-900" required><br><br>
+
+ <label for="airline">Airline Name: <span class="required">*</span></label><br>
+ <input type="text" id="airline" name="Airline" placeholder="E.g. American Airlines, Lufthansa" required><br><br>
+
+ <label for="reg">Specific reg(s) (optional):</label><br>
+ <input type="text" id="reg" name="Reg" placeholder="E.g. N15710, D-AIXA"><br><br>
+ 
+ <label for="image">Link to refrence image (optional):</label><br>
+ <input type="text" id="image" name="Image"  placeholder="E.g. https://www.jetphotos.com/photo/11667150"><br><br>
+
+ <label for="info">Additional info (optional):</label><br>
+ <textarea id="info" name="Info" placeholder="Any additional refrences, contact detailes, additional info about the livery such as configuration or engine type" rows="4" cols="50"></textarea><br><br>
+<h4>Please note that submitting this form does not guarantee that the requested livery will be created.</h4>
+ <button type="submit">Submit Request</button>
+</form>
+ 
+ <!-- Custom Livery Order -->
+ <section class="request-section">
+  <div class="request-panel">
+  </div>
+    <div class="request-panel">
+        <img src="imgs/OSPREYASB10.png" alt="Custom Livery">
+    </div>
+    <div class="request-panel">
+        <h2>Custom Livery Order</h2>
+        <p>Want a custom livery? I create custom liveries tailored to your vision. <br>Options include:  <br>
+        - **Modifying Airline Liveries**  <br>
+        - **Ready Template**  <br>
+        - **Customer Design**</p>
+    </div>
+ </section>
+ <!-- Final CTA -->
+ <section class="hero" style="background: url('imgs/request.jpg') no-repeat center center/cover;">
+    <div>
+        <h1>Let's Create Something Amazing</h1>
+        <p>Contact me to get your custom livery started!</p>
+        <div class="cta-button-container">
+          <a href="contact.html" class="cta-button">Contact</a>
+        </div>   
+    </div>
+ </section>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-top">
+      <div class="footer-left">
+          <p>&copy; 2025 Tapzi Liveries</p>
+      </div>
+
+      <div class="footer-center">
+          <div class="contact-info">
+              <p><strong>Discord:</strong> tapzi</p>
+              <p><strong>Email:</strong> <a href="mailto:tapziworld@gmail.com">tapziworld@gmail.com</a></p>
+          </div>
+      </div>
+
+      <div class="footer-right">
+          <div class="social-links">
+              <a href="https://www.youtube.com/@Tapzi" target="_blank" class="social-icon youtube">
+                  <i class="fab fa-youtube"></i>
+              </a>
+              <a href="https://flightsim.to/profile/Tapzi" target="_blank" class="social-icon link">
+                  <i class="fas fa-link"></i>
+              </a>
+              <a href="https://www.instagram.com/_tapzi_/" target="_blank" class="social-icon instagram">
+                  <i class="fab fa-instagram"></i>
+              </a>
+               <!-- Buy Me A Coffee Link -->
+               <a href="https://buymeacoffee.com/tapziliveries" target="_blank" class="social-icon donation">
+                <i class="fa-solid fa-hand-holding-dollar"></i>
+            </a>
+          </div>
+      </div>
+  </div>
+</footer>
+
+
+<script>
+  const icons = [
+      '<i class="fa-solid fa-palette"></i>',
+      '<i class="fa-solid fa-plane"></i>',
+      '<i class="fa-solid fa-paint-brush"></i>',
+      '<i class="fa-solid fa-pen-ruler"></i>',
+      '<i class="fa-solid fa-ruler"></i>',
+      '<i class="fa-regular fa-windsock"></i>',
+      '<i class="fa-solid fa-traffic-cone"></i>',
+      '<i class="fa-solid fa-cloud"></i>'
+  ];
+  
+  document.addEventListener("DOMContentLoaded", () => {
+      const ICON_COUNT = 140;
+      const MIN_DISTANCE = 40;
+      const container = document.getElementById("iconContainer");
+      const containerRect = container.getBoundingClientRect();
+      const existingPositions = [];
+  
+      // Function to generate random positions
+      function getRandomPosition() {
+          let x, y, attempts = 0;
+          do {
+              x = Math.random() * (containerRect.width - 40);
+              y = Math.random() * (containerRect.height - 40);
+              attempts++;
+          } while (attempts < 50 && isTooClose({ x, y }, existingPositions));
+          
+          existingPositions.push({ x, y });
+          return { x, y };
+      }
+  
+      // Function to check if the new position is too close to existing ones
+      function isTooClose(newPos, existingPositions) {
+          return existingPositions.some(pos => 
+              Math.hypot(newPos.x - pos.x, newPos.y - pos.y) < MIN_DISTANCE
+          );
+      }
+  
+      // Place icons within the container
+      function placeIcons() {
+          for (let i = 0; i < ICON_COUNT; i++) {
+              const iconElement = document.createElement("div");
+              iconElement.classList.add("svg-icon");
+              iconElement.innerHTML = icons[Math.floor(Math.random() * icons.length)];
+              
+              const { x, y } = getRandomPosition();
+              iconElement.style.left = `${x}px`;
+              iconElement.style.top = `${y}px`;
+              iconElement.style.position = "absolute";
+              iconElement.style.fontSize = "2rem";
+              
+              container.appendChild(iconElement);
+          }
+      }
+  
+      // Call placeIcons on load
+      placeIcons();
+  });
+  </script>
+  
+
+</body>
+</html>

@@ -1,0 +1,698 @@
+/* ======= Global Reset ======= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Palanquin Dark', sans-serif;
+}
+
+body {
+    background: #131313;
+    color: #f5f5f5;
+    transition: background 0.4s, color 0.4s;
+}
+
+/* ======= Hero Section (Welcome Page) ======= */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('imgs/mainbg.png') center/cover no-repeat;
+    background-attachment: fixed; /* Ensures the background stays visible */
+}
+
+.hero-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.568); /* Less black to make image more visible */
+    backdrop-filter: blur(4px); /* Optional blur */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    max-width: 600px;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.hero-heading {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    background: #f5f5f5;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    font-size: 1.4rem;
+    margin: 15px 0;
+    opacity: 0.9;
+}
+
+/* ======= Call-to-Action Button ======= */
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #a91717, #7d1010);
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(255, 71, 71, 0.3);
+    transition: all 0.3s;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(255, 71, 71, 0.5);
+}
+
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    z-index: 10;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-logo {
+    height: 40px; /* Adjust the size as needed */
+    margin-right: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #a91717;
+}
+
+
+/* Portfolio Section */
+.portfolio-section {
+    background-color: var(--light-bg);
+    padding-top: 94px;
+    padding-right: 20px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    text-align: center;
+}
+
+/* Portfolio Heading */
+.portfolio-heading {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    display: inline-block;
+}
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 2fr);
+    gap: 80px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Portfolio Item */
+.portfolio-item {
+    background-color: #1e1e1e3d;
+    border-radius: 12px;
+    box-shadow: 0 0 6px 4px rgba(116, 116, 116, 0.18); 
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    transition: all 0.5s;
+}
+
+.portfolio-item:hover {
+    transform: scale(1.05);
+}
+
+.portfolio-item img {
+    width: 90%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+/* Portfolio Item Text */
+.portfolio-item-text {
+    padding: 15px;
+}
+
+.portfolio-item-text h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.portfolio-item-text a {
+    font-size: 1rem;
+    color: #0077cc;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    border: 1px solid #0077cc;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.portfolio-item-text a:hover {
+    background-color: #0077cc;
+    color: #fff;
+}
+
+/* Portfolio Info Section */
+.portfolio-info {
+    margin-top: 80px;
+    background-color: var(--light-bg);
+    padding-top: 40px;
+
+    text-align: center;
+}
+
+/* Portfolio Info Heading */
+.portfolio-info h3 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 50px;
+}
+
+/* Grid for Logos and Clients */
+.portfolio-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    justify-items: center;
+    align-items: start;
+    margin: 0 auto;
+}
+.portfolio-info-grid-painted {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    justify-items: center;
+    align-items: start;
+    margin: 0 auto;
+}
+
+.portfolio-info-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 200px;
+    width: 100%;
+}
+
+.portfolio-info-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    border-radius: 7px;
+}
+
+/* Optional Styling for Text */
+.portfolio-info-item p {
+    font-size: 1.45rem;
+    color: var(--dark-text);
+}
+
+/* Call to Action (CTA) Button */
+.portfolio-cta {
+    margin-top: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.portfolio-cta .cta-button {
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    background-color: var(--highlight-color);
+    color: white;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(255, 71, 71, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: inline-block;
+}
+
+.portfolio-cta .cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(255, 71, 71, 0.5);
+}
+
+/* Pricing Section */
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    justify-content: center;
+}
+
+.pricing-item h3 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.pricing-item .price {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-top: 20px;
+}
+
+/* Contact Section */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.contact-form button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.contact-form button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* ======= Footer ======= */
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #a91717;
+    color: #fff;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-left {
+    text-align: left;
+}
+
+.footer-center {
+    text-align: center;
+}
+
+.footer-right {
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Social Icons */
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-icon {
+    font-size: 24px;
+    color: #e7e7e7;
+    transition: color 0.5s ease;
+}
+
+.social-icon:hover {
+    color: #b9b9b9;
+}
+
+/* Contact Info */
+.contact-info {
+    margin-top: 10px;
+}
+
+.contact-info p {
+    font-size: 16px;
+}
+
+.contact-info a {
+    color: #e7e7e7;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    color: #b9b9b9;
+}
+
+/* Footer Text */
+.footer-left p,
+.footer-center p,
+.footer-right p {
+    font-size: 16px;
+    margin: 0;
+}
+
+
+.youtube:hover,
+.donation:hover,
+.instagram:hover,
+.link:hover {
+    color: #a0a0a0;
+    transform: scale(1.2);
+}
+
+
+/* ======= Animations ======= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Button for "View All My Work" */
+.cta-button-container {
+    text-align: center;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #a91717, #7d1010);
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(255, 71, 71, 0.3);
+    transition: all 0.3s;
+}
+
+.cta-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(255, 71, 71, 0.5);
+}
+
+.download-link {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: white;
+    background: linear-gradient(135deg, #a91717, #7d1010);
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(255, 71, 71, 0.3);
+    margin-bottom: 20px;
+    margin-top: 8px;
+}
+
+/* Hover effect */
+.download-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(255, 71, 71, 0.5);
+}
+
+/* Ripple Effect */
+.download-link::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: width 0.5s ease, height 0.5s ease, opacity 0.5s ease;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.download-link:active::after {
+    width: 0%;
+    height: 0%;
+    opacity: 1;
+}
+
+/* Button Click Effect */
+.download-link:active {
+    transform: scale(0.95);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.portfolio-item .portfolio-name {
+margin-bottom: 20px;
+}
+form {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input, select, textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  button {
+    background-color: #a91717;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+
+      /* Paper Airplane Animation */
+      .paper-airplane-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5;
+    }
+
+    .paper-airplane {
+        display: flex;
+        justify-content: center;
+        margin: 100px auto; /* Adds spacing between sections */
+        width: 30%; /* Adjust size */
+        cursor: pointer;
+
+        /* Floating animation */
+        animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px); /* Moves up slightly */
+        }
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    .paper-airplane img {
+        width: 75%;
+        height: auto;
+    }
+
+    .paper-airplane:hover {
+        transform: scale(1.2);
+    }
+
+    .icons-container {
+        position: relative; /* Ensures icons stay in the right area */
+        width: 100%;
+        overflow: visible;
+    }
+
+/* Popup Overlay (Dark Background) */
+.popup-overlay {
+    display: none; /* Initially hidden */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 999;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Show Popup */
+.popup-overlay.show {
+    display: flex; /* Only shows when JavaScript adds "show" */
+}
+/* Popup Box */
+.popup {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: black;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center content */
+    align-items: center;
+}
+
+.popup h2 {
+    margin: 0 0 5px;
+    font-size: 25px; /* Slightly smaller */
+}
+
+.popup p {
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+/* Download Button */
+.popup-btn {
+    display: inline-block;
+    padding: 8px 12px;
+    background: #a91717;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 17px;
+}
+
+.popup-btn:hover {
+    background: #871414;
+}
+
+/* Close Button */
+.popup-close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* Show Popup */
+.show {
+    display: flex; /* Ensure proper display */
+}
+.required {
+    color: red;
+}
+@media (max-width: 768px) {
+    .portfolio-info-grid-painted,
+    .portfolio-info-grid { 
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 40px;
+        justify-items: center;
+        align-items: start;
+        margin: 0 auto;
+    }
+    .hero-heading {
+        font-size: 1.7rem;
+    }
+
+    .hero-description {
+        font-size: 1.2rem;
+        margin: 20px;
+    }
+
+      /* Paper Airplane Animation */
+      .paper-airplane-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 5;
+    }
+
+    .paper-airplane {
+        display: flex;
+        justify-content: center;
+        margin: 80px auto; /* Adds spacing between sections */
+        width: 50%; /* Adjust size */
+        cursor: pointer;
+
+        /* Floating animation */
+        
+   }
+
+}
+@media (max-width: 1024px) {
+    .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 80px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    .hero-heading {
+        font-size: 2.8rem;
+    }
+
+    .hero-description {
+        font-size: 1.3rem;
+    }
+}
