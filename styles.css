@@ -91,39 +91,57 @@ body {
 nav {
     position: fixed;
     width: 100%;
-    padding: 15px;
-    display: flex;
-    align-items: center;
+    padding: 15px 20px;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(5px);
     z-index: 10;
     transition: all 0.3s ease-in-out;
-}
+  }
+  
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Stick items to the left */
+    margin: 0 auto;
+    gap: 20px; /* space between logo and links */
+  }
+  
+  .nav-logo {
+    height: 40px;
+  }
+  
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
 
-.nav-logo {
-    height: 40px; /* Adjust the size as needed */
-    margin-right: 20px;
-}
-
-nav a {
+  .nav-links a {
     color: white;
     text-decoration: none;
-    margin: 0 20px;
     font-weight: bold;
     font-size: 1.1rem;
     transition: color 0.3s;
-}
-
-nav a:hover {
+  }
+  
+  .nav-links a:hover {
     color: #a91717;
-}
-
-nav a.active {
+  }
+  
+  .nav-links a.active {
     border-bottom: 3px solid #a91717;
     padding-bottom: 4px;
     color: #a91717;
-}
-
+  }
+  
+  /* Hamburger icon - hidden by default */
+  .nav-toggle {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+  }
 
 /* Portfolio Section */
 .portfolio-section {
@@ -698,9 +716,6 @@ form {
         margin: 80px auto; /* Adds spacing between sections */
         width: 50%; /* Adjust size */
         cursor: pointer;
-
-        /* Floating animation */
-        
    }
 
    .about-me-content {
@@ -712,6 +727,49 @@ form {
     text-align: center;
   }
 
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-left,
+  .footer-center,
+  .footer-right {
+    flex: unset;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    margin: 5px 0;
+  }
+
+  .footer-right {
+    justify-content: center;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.95);
+    position: absolute;
+    top: 65px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-links a {
+    margin: 10px 0;
+  }
 }
 @media (max-width: 1024px) {
     .portfolio-grid {

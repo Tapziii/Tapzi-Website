@@ -219,13 +219,19 @@
 
 <header>
   <nav>
-    <a href="index.html">
+    <div class="nav-container">
+      <a href="index.html">
         <img src="imgs/logo.png" alt="Tapzi Logo" class="nav-logo">
-    </a>
-    <a href="index.html">Home</a>
-    <a href="portfolio.html">Portfolio</a>
-    <a href="request.html" class="active">Request</a>
-</nav>
+      </a>
+      <div class="nav-toggle" id="nav-toggle">&#9776;</div>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="request.html" class="active">Request</a>
+      </div>
+    </div>
+  </nav>
+  
 </header>
 
 <!-- Hero Section -->
@@ -469,6 +475,13 @@
   
       // Call placeIcons on load
       placeIcons();
+  });
+
+  const toggleBtn = document.getElementById('nav-toggle');
+  const navLinks = document.getElementById('nav-links');
+
+  toggleBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
   });
   </script>
   
