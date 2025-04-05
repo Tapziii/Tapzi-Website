@@ -6,6 +6,7 @@
     <title>Request a Livery</title>
     <link href="https://fonts.googleapis.com/css2?family=Lexend" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
 
@@ -89,7 +90,8 @@
 
     /* Request Sections */
     .request-section {
-        height: 100vh;
+        margin-top: 200px;
+        margin-bottom: 200px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -201,6 +203,7 @@
       align-content: center
     }
     h4 {
+      text-align: left;
       margin-top: -10px;
       margin-bottom: 30px;
       font-weight: lighter;
@@ -269,6 +272,7 @@
 
  <label for="simulator"><span class="required">*</span>Simulator:</label><br>
  <select name="Simulator" id="simulator" required>
+  <option value="" disabled selected>Choose</option>
   <option value="MSFS 2020">MSFS 2020</option>
   <option value="MSFS 2024">MSFS 2024</option>
   <option value="X Plane">X Plane</option>
@@ -276,6 +280,7 @@
 
  <label for="developer"><span class="required">*</span> Aircraft Developer:</label><br>
  <select name="Developer" id="developer" required>
+  <option value="" disabled selected>Choose</option>
   <option value="Fenix">Fenix</option>
   <option value="PMDG">PMDG</option>
   <option value="iniBuilds">iniBuilds</option>
@@ -307,28 +312,52 @@
  <input type="text" id="link" name="link"  placeholder="E.g. https://www.jetphotos.com/photo/11667150"><br><br>
 
  <label for="info">Additional info (optional):</label><br>
- <textarea id="info" name="Info" placeholder="Any additional refrences, contact detailes, additional info about the livery such as configuration or engine type" rows="5" cols="50"></textarea><br><br>
-<h4>Please note that submitting this form does not guarantee that the requested livery will be created.</h4>
- <button type="submit">Submit Request</button>
+ <textarea id="info" name="Info" placeholder="Any additional refrences, specific scheme year, additional info about the livery such as configuration or engine type" rows="5" cols="50"></textarea><br><br>
+ <h4>Please note that submitting this form does not guarantee that the requested livery will be created.</h4>
+ <button type="submit" class="submit">Submit Request</button>
 </form>
  
+<hr>
  <!-- Custom Livery Order -->
  <section class="request-section">
   <div class="request-panel">
   </div>
     <div class="request-panel">
-        <img src="imgs/OSPREYASB10.png" alt="Custom Livery">
+        <img src="imgs/OSPREY2.png" alt="Custom Livery">
     </div>
     <div class="request-panel">
         <h2>Custom Livery Order</h2>
-        <p>Want a custom livery? I create custom liveries tailored to your vision. <br>Options include:  <br>
+        <p>Want a custom livery? I create custom liveries tailored to your vision. <br>
+          Options include:  <br>
         - Ready Template <br>
         - Customer Design<br>
         - Cabin Textures<br>
-        - Custom cabin for supported aircrafts
+        - Custom cabin for supported aircrafts <br>
+        Post-delivery support is included
       </p>
     </div>
+  </section>
+
+ <section class="slideshow-container">
+  <h1 class="slideshow-text">Templates</h1>
+
+  <div class="mySlides fade">
+    <img src="imgs/Osprey.png" alt="Slide 1">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="imgs/Screenshot (35).png" alt="Slide 2">
+  </div>
+
+  <div class="mySlides fade">
+    <img src="imgs/mainbg.png" alt="Slide 3">
+  </div>
+
+  <!-- Navigation buttons -->
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
  </section>
+
  <!-- Final CTA -->
  <section class="hero-bottom">
     <div>
@@ -342,10 +371,11 @@
           <h2 class="form-h2">Custom Livery Request Form</h2><br>
           
           <label for="contact"><span class="required">*</span>Contact details:</label><br>
-          <input type="text" id="contact" name="Contact" placeholder="Where can I contact you?" required><br><br>
+          <input type="text" id="contact" name="Contact" placeholder="Where and how can I contact you?" required><br><br>
 
           <label for="simulator"><span class="required">*</span> Simulator:</label><br>
           <select name="Simulator" id="simulator" required>
+           <option value="" disabled selected>Choose</option>
            <option value="MSFS 2020">MSFS 2020</option>
            <option value="MSFS 2024">MSFS 2024</option>
            <option value="X Plane">X Plane</option>
@@ -353,6 +383,7 @@
          
           <label for="developer"><span class="required">*</span> Aircraft Developer:</label><br>
           <select name="Developer" id="developer" required>
+           <option value="" disabled selected>Choose</option>
            <option value="Fenix">Fenix</option>
            <option value="PMDG">PMDG</option>
            <option value="iniBuilds">iniBuilds</option>
@@ -372,8 +403,13 @@
           <label for="aircraft"><span class="required">*</span> Aircraft Type:</label><br>
           <input type="text" id="aircraft" name="Aircraft" placeholder="E.g. Boeing 737-700, Airbus A350-900" required><br><br>
          
-          <label for="info"><span class="required">*</span> Additional info</label><br>
-          <textarea id="info" name="Info" placeholder="Additional refrences and info about the request" rows="4" cols="50" required></textarea><br><br>
+          <label for="info"><span class="required">*</span> Livery info</label><br>
+          <textarea id="info" name="Info" placeholder="Additional refrences and info about the request. If you want a template mention here which one" rows="5" cols="50" required></textarea><br><br>
+         
+          <label for="info">Additional info or questions (optional):</label><br>
+          <textarea id="info" name="Info" placeholder="Any additional notes or questions go here" rows="4" cols="50"></textarea><br><br>
+         
+          <h4>Please note that I don't owen every aircraft, especially for X Plane, I will contact if there's any problem. In addition</h4>
           <button type="submit">Submit Request</button>
          </form>
           
@@ -407,10 +443,13 @@
               <a href="https://www.instagram.com/_tapzi_/" target="_blank" class="social-icon instagram">
                   <i class="fab fa-instagram"></i>
               </a>
+              <a href="https://buymeacoffee.com/tapziliveries" target="_blank" class="social-icon donation">
+                  <i class="fa-brands fa-paypal"></i>
+              </a>
                <!-- Buy Me A Coffee Link -->
-               <a href="https://buymeacoffee.com/tapziliveries" target="_blank" class="social-icon donation">
-                <i class="fa-solid fa-hand-holding-dollar"></i>
-            </a>
+              <a href="https://buymeacoffee.com/tapziliveries" target="_blank" class="social-icon donation">
+                  <i class="fa fa-buymeacoffee" aria-hidden="true"></i>
+              </a>
           </div>
       </div>
   </div>
@@ -483,6 +522,47 @@
   toggleBtn.addEventListener('click', () => {
     navLinks.classList.toggle('show');
   });
+
+
+
+let slideIndex = 0;
+let slideTimer;
+
+function showSlidesAuto() {
+  const slides = document.getElementsByClassName("mySlides");
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  slideIndex++;
+  if (slideIndex > slides.length) { slideIndex = 1 }
+
+  slides[slideIndex - 1].style.display = "block";
+  slideTimer = setTimeout(showSlidesAuto, 3000); // Auto slide every 3s
+}
+
+function plusSlides(n) {
+  clearTimeout(slideTimer);
+  showSlides(slideIndex += n);
+}
+
+function showSlides(n) {
+  const slides = document.getElementsByClassName("mySlides");
+
+  if (n > slides.length) { slideIndex = 1 }
+  if (n < 1) { slideIndex = slides.length }
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  slides[slideIndex - 1].style.display = "block";
+  slideTimer = setTimeout(showSlidesAuto, 5000);
+}
+
+document.addEventListener("DOMContentLoaded", showSlidesAuto);
+
   </script>
   
 
