@@ -212,6 +212,9 @@
 .cta-button:active {
     transform: scale(0.95);
 }
+.cta-button {
+    padding: 15px 25px;;
+}
 .hero-heading-bottom {
     font-size: 4rem;
 }
@@ -275,9 +278,10 @@
   .dark .post-support {
     color: #aaa;
   }
-  .cta-button {
-    padding: 15px 25px;;
-}
+  .future-service {
+    text-align: center;
+    font-size: 1.3rem;
+  }
     </style>
 </head>
 <body onload="placeIcons()">
@@ -292,8 +296,8 @@
       <div class="nav-links" id="nav-links">
         <a href="index.html">Home</a>
         <a href="portfolio.html">Portfolio</a>
-        <a href="request.html" class="active">Livery Request</a>
-        <a href="custom.html">Custom Liveries</a>
+        <a href="request.html">Livery Request</a>
+        <a href="custom.html" class="active">Custom Liveries</a>
       </div>
     </div>
   </nav>
@@ -303,7 +307,7 @@
 <!-- Hero Section -->
 <section class="hero">
     <div>
-        <h1>Request a Livery</h1>
+        <h1>Custom Liveries</h1>
         <p>Handcrafted liveries made with precision, detail, and creativity.</p>
         <div class="cta-button-container">
           <a href="#request-section" class="cta-button">Get Started</a>
@@ -312,116 +316,167 @@
 </section>
 <!-- Container where icons will be placed -->
 <div class="svg-container" id="iconContainer">
- <!-- Real Livery Request -->
- <section class="request-section" id="request-section">
+ <!-- Custom Livery Order -->
+ <section class="request-section">
+  <div class="request-panel">
+  </div>
     <div class="request-panel">
-        <h2>Real Livery Request</h2>
-        <p>Do you want an accurate real-world airline livery for MSFS or X Plane?<br> I specialize in recreating liveries as close to reality as possible, including:  <br>
-        - Retired or Historic Liveries  <br>
-        - Current Liveries  <br>
-        - Special Liveries  <br>
-        If you want to request a real livery, fill the form below
-      </p>
+        <img src="imgs/OSPREY2.png" alt="Custom Livery">
     </div>
     <div class="request-panel">
-        <img src="imgs/KOREAN.png" alt="Real Livery">
+        <h2>Custom Liveries</h2>
+        <p>Are you looking to establish a virtual airline, expand an existing one, or bring to life the livery you've always wanted to fly in the sim?
+            I offer professional custom livery services, making each design to your exact specifications. Below, you can explore the available services and addons.</p>
+    </div>
+  </section>
+
+ <div class="livery-options">
+  <div class="livery-card">
+    <h3>✏️ Template Modification – what is it?</h3>
+    <div class="feature">Customize one of the avialable templates or a real airline livery</div>
+    <div class="feature">Color changes, logos, minor edits</div>
+    <div class="feature">One registration included</div><br>
+    <h3>How much? – <strong>starting from $20</strong></h3><br>
+    <div class="post-support">✅ Post-delivery support for fixes and updates</div>
+  </div>
+
+  <div class="livery-card">
+    <h3>🖌️ Customer Design Painting – what is it?</h3>
+    <div class="feature">You provide the design, logo and colors, I paint it</div>
+    <div class="feature">One registration included</div>
+    <div class="feature">Accurate alignment and high detail</div><br>
+    <h3>How much? – <strong>starting from $30</strong></h3><br>
+    <div class="post-support">✅ Post-delivery support for fixes and updates</div>
+  </div>
+
+  <div class="add-ons">
+    <h3>🧩 Add-Ons:</h3>
+    <div class="feature"><strong>Cabin Textures</strong> – from $5</div>
+    <div class="feature"><strong>Custom Cabin (for supported aircrafts)</strong> – from $10</div>
+    <div class="feature"><strong>Extra registrations</strong> – +$3 each</div>
+    <div class="feature"><strong>Special stikcer additions</strong> – from $5</div>
+  </div>
+</div>
+<p class="future-service">More services will be added in the future</p>
+
+ <!-- Final CTA -->
+ <section class="hero-bottom">
+    <div>
+        <h1 class="hero-heading-bottom">Let's Create Something Amazing</h1>
+        <p>Ready to request? Fill the form to get your custom livery started!</p>
+        <div class="cta-button-container">
+          <form
+          action="https://formspree.io/f/mgvanldw"
+          method="POST"
+          enctype="multipart/form-data" >
+          <h2 class="form-h2">Custom Livery Request Form</h2><br>
+          
+          <label for="contact"><span class="required">*</span>Contact details:</label><br>
+          <input type="text" id="contact" name="Contact" placeholder="How can I contact you? E.g. Discord: tapzi" required><br><br>
+
+          <label for="service"><span class="required">*</span> Select service:</label><br>
+          <select name="Service" id="service" required>
+           <option value="" disabled selected>Choose</option>
+           <option value="Template Modification">Template Modification</option>
+           <option value="Customer Design">Customer Design</option>
+         </select><br><br>
+          
+
+          <label for="simulator"><span class="required">*</span> Simulator:</label><br>
+          <select name="Simulator" id="simulator" required>
+           <option value="" disabled selected>Choose</option>
+           <option value="MSFS 2020">MSFS 2020</option>
+           <option value="MSFS 2024">MSFS 2024</option>
+           <option value="X Plane">X Plane</option>
+         </select><br><br>
+         
+          <label for="developer"><span class="required">*</span> Aircraft Developer:</label><br>
+          <select name="Developer" id="developer" required>
+           <option value="" disabled selected>Choose</option>
+           <option value="Fenix">Fenix</option>
+           <option value="PMDG">PMDG</option>
+           <option value="iniBuilds">iniBuilds</option>
+           <option value="FlyByWire">FlyByWire</option>
+           <option value="iFly">iFly</option>
+           <option value="TFDI">TFDI</option>
+           <option value="FlightSim Studio">FlightSim Studio</option>
+           <option value="Horizon Simulations">Horizon Simulations</option>
+           <option value="Asobo">Asobo</option>
+           <option value="Headwind Simulations">Headwind Simulations</option>
+           <option value="FlightFactor">FlightFactor</option>
+           <option value="X-Works">X-Works</option>
+           <option value="Laminar">Laminar</option>
+           <option value="LevelUp">LevelUp</option>
+           <option value="Zibo">Zibo</option>
+         </select><br><br>
+
+          <label for="aircraft"><span class="required">*</span> Aircraft Type:</label><br>
+          <input type="text" id="aircraft" name="Aircraft" placeholder="E.g. Boeing 737-700, Airbus A350-900" required><br><br>
+         
+          <label for="info"><span class="required">*</span> Livery info</label><br>
+          <textarea id="info" name="Info" placeholder="Additional refrences and info about the request. If you want a template mention here which one" rows="5" cols="50" required></textarea><br><br>
+         
+          <label for="addon"></span> If you want to add addon/s, choose them here:</label><br>
+          <select name="Addon" id="addon" required>
+           <option value="" disabled selected>Choose</option>
+           <option value="Cabin Textures">Cabin Textures</option>
+           <option value="Custom Cabin">Custom Cabin</option>
+           <option value="Extra registrations">Extra registrations</option>
+           <option value="Special stikcer additions">Special stikcer additions</option>
+         </select><br><br>
+
+          <label for="info">Additional info or questions (optional):</label><br>
+          <textarea id="info" name="Info" placeholder="Any additional notes or questions go here" rows="4" cols="50"></textarea><br><br>
+         
+          <h4>Please note that I don't owen every aircraft, especially for X Plane, I will contact if there's any problem. In addition</h4>
+          <button type="submit">Submit Request</button>
+         </form>
+          
+        </div>   
     </div>
  </section>
- <form
- action="https://formspree.io/f/mgvanldw"
- method="POST"
- enctype="multipart/form-data" >
- <h2 class="form-h2">Real Livery Request Form</h2><br>
-
- <label for="simulator"><span class="required">*</span>Simulator:</label><br>
- <select name="Simulator" id="simulator" required>
-  <option value="" disabled selected>Choose</option>
-  <option value="MSFS 2020">MSFS 2020</option>
-  <option value="MSFS 2024">MSFS 2024</option>
-  <option value="X Plane">X Plane</option>
-</select><br><br>
-
- <label for="developer"><span class="required">*</span> Aircraft Developer:</label><br>
- <select name="Developer" id="developer" required>
-  <option value="" disabled selected>Choose</option>
-  <option value="Fenix">Fenix</option>
-  <option value="PMDG">PMDG</option>
-  <option value="iniBuilds">iniBuilds</option>
-  <option value="FlyByWire">FlyByWire</option>
-  <option value="iFly">iFly</option>
-  <option value="TFDI">TFDI</option>
-  <option value="FlightSim Studio">FlightSim Studio</option>
-  <option value="Horizon Simulations">Horizon Simulations</option>
-  <option value="Asobo">Asobo</option>
-  <option value="Headwind Simulations">Headwind Simulations</option>
-  <option value="FlightFactor">FlightFactor</option>
-  <option value="X-Works">X-Works</option>
-  <option value="Laminar">Laminar</option>
-  <option value="LevelUp">LevelUp</option>
-  <option value="Zibo">Zibo</option>
-
-
-</select><br><br>
-
- <label for="aircraft"><span class="required">*</span> Aircraft Type:</label><br>
- <input type="text" id="aircraft" name="Aircraft" placeholder="E.g. Boeing 737-700, Airbus A350-900" required><br><br>
-
- <label for="airline"><span class="required">*</span>Airline Name:</label><br>
- <input type="text" id="airline" name="Airline" placeholder="E.g. American Airlines, Lufthansa" required><br><br>
-
- <label for="reg">Specific reg(s) (optional):</label><br>
- <input type="text" id="reg" name="Reg" placeholder="E.g. N15710, D-AIXA"><br><br>
- 
- <label for="link">Link to refrence image (optional):</label><br>
- <input type="text" id="link" name="link"  placeholder="E.g. https://www.jetphotos.com/photo/11667150"><br><br>
-
- <label for="info">Additional info (optional):</label><br>
- <textarea id="info" name="Info" placeholder="Any additional refrences, specific scheme year, additional info about the livery such as configuration or engine type" rows="5" cols="50"></textarea><br><br>
- <h4>Please note that submitting this form does not guarantee that the requested livery will be created.</h4>
- <button type="submit" class="submit">Submit Request</button>
-</form>
- 
+</div>
 
 <!-- Footer -->
 <footer>
-    <div class="footer-top">
-        <div class="footer-left">
-            <p>&copy; 2025 Tapzi Liveries</p>
-        </div>
-        
-        <div class="footer-bottom" style="text-align: center; margin-top: 10px; font-size: 0.85em; color: #ffffff; font-size: 1rem;">
-          <a href="/privacy-policy.html" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 1rem;">Privacy Policy</a>
+  <div class="footer-top">
+      <div class="footer-left">
+          <p>&copy; 2025 Tapzi Liveries</p>
       </div>
       
-        <div class="footer-center">
-            <div class="contact-info">
-                <p><strong>Discord:</strong> tapzi</p>
-                <p><strong>Email:</strong> <a href="mailto:tapziworld@gmail.com">tapziworld@gmail.com</a></p>
-            </div>
-        </div>
-  
-        <div class="footer-right">
-            <div class="social-links">
-                <a href="https://www.youtube.com/@Tapzi" target="_blank" class="social-icon youtube">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <a href="https://flightsim.to/profile/Tapzi" target="_blank" class="social-icon link">
-                    <i class="fas fa-link"></i>
-                </a>
-                <a href="https://www.instagram.com/_tapzi_/" target="_blank" class="social-icon instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="https://buymeacoffee.com/tapziliveries" target="_blank" class="social-icon donation">
-                    <i class="fa-brands fa-paypal"></i>
-                </a>
-                 <!-- Buy Me A Coffee Link -->
-                <a href="https://buymeacoffee.com/tapziliveries" target="_blank" class="social-icon donation">
-                    <i class="fa fa-buymeacoffee" aria-hidden="true"></i>
-                </a>
-            </div>
-        </div>
+      <div class="footer-bottom" style="text-align: center; margin-top: 10px; font-size: 0.85em; color: #ffffff; font-size: 1rem;">
+        <a href="/privacy-policy.html" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 1rem;">Privacy Policy</a>
     </div>
-  </footer>
+    
+      <div class="footer-center">
+          <div class="contact-info">
+              <p><strong>Discord:</strong> tapzi</p>
+              <p><strong>Email:</strong> <a href="mailto:tapziworld@gmail.com">tapziworld@gmail.com</a></p>
+          </div>
+      </div>
+
+      <div class="footer-right">
+          <div class="social-links">
+              <a href="https://www.youtube.com/@Tapzi" target="_blank" class="social-icon youtube">
+                  <i class="fab fa-youtube"></i>
+              </a>
+              <a href="https://flightsim.to/profile/Tapzi" target="_blank" class="social-icon link">
+                  <i class="fas fa-link"></i>
+              </a>
+              <a href="https://www.instagram.com/_tapzi_/" target="_blank" class="social-icon instagram">
+                  <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://buymeacoffee.com/tapziliveries" target="_blank" class="social-icon donation">
+                  <i class="fa-brands fa-paypal"></i>
+              </a>
+               <!-- Buy Me A Coffee Link -->
+              <a href="https://buymeacoffee.com/tapziliveries" target="_blank" class="social-icon donation">
+                  <i class="fa fa-buymeacoffee" aria-hidden="true"></i>
+              </a>
+          </div>
+      </div>
+  </div>
+</footer>
 
 
 <script>
@@ -490,46 +545,6 @@
   toggleBtn.addEventListener('click', () => {
     navLinks.classList.toggle('show');
   });
-
-
-
-let slideIndex = 0;
-let slideTimer;
-
-function showSlidesAuto() {
-  const slides = document.getElementsByClassName("mySlides");
-
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-
-  slideIndex++;
-  if (slideIndex > slides.length) { slideIndex = 1 }
-
-  slides[slideIndex - 1].style.display = "block";
-  slideTimer = setTimeout(showSlidesAuto, 3000); // Auto slide every 3s
-}
-
-function plusSlides(n) {
-  clearTimeout(slideTimer);
-  showSlides(slideIndex += n);
-}
-
-function showSlides(n) {
-  const slides = document.getElementsByClassName("mySlides");
-
-  if (n > slides.length) { slideIndex = 1 }
-  if (n < 1) { slideIndex = slides.length }
-
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-
-  slides[slideIndex - 1].style.display = "block";
-  slideTimer = setTimeout(showSlidesAuto, 5000);
-}
-
-document.addEventListener("DOMContentLoaded", showSlidesAuto);
 
   </script>
   

@@ -38,6 +38,7 @@ body {
 
 .hero-bottom p {
     margin-top: 20px;
+    font-size: larger;
 }
 
 .hero-overlay {
@@ -79,7 +80,7 @@ body {
     text-decoration: none;
     color: white;
     background: linear-gradient(135deg, #a91717, #7d1010);
-    border-radius: 50px;
+    border-radius: 10px;
     box-shadow: 0 4px 10px rgba(255, 71, 71, 0.3);
     transition: all 0.3s;
 }
@@ -309,7 +310,7 @@ nav {
     font-size: 1.2rem;
     background-color: var(--highlight-color);
     color: white;
-    border-radius: 50px;
+    border-radius: 10px;
     box-shadow: 0 4px 10px rgba(255, 71, 71, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: inline-block;
@@ -471,13 +472,13 @@ nav {
 
 .cta-button {
     display: inline-block;
-    padding: 12px 25px;
+    padding: 17px 25px;
     font-size: 1.1rem;
     font-weight: bold;
     text-decoration: none;
     color: white;
     background: linear-gradient(135deg, #a91717, #7d1010);
-    border-radius: 50px;
+    border-radius: 10px;
     box-shadow: 0 4px 10px rgba(255, 71, 71, 0.3);
     transition: all 0.3s;
 }
@@ -571,8 +572,15 @@ form {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.5s ease, color 0.3s ease;
   }
-
+  
+  button:hover {
+    background-color: #cf0f0f;
+    color: white;
+    transform: scale(1.13);
+  }
+  
 
       /* Paper Airplane Animation */
       .paper-airplane-container {
@@ -763,7 +771,10 @@ form {
   }
 
   .nav-toggle {
-    display: block;
+    display: flex;
+    justify-content: flex-end; /* Aligns to the right */
+    align-items: center;
+    flex-wrap: nowrap;
   }
 
   .nav-links {
@@ -851,7 +862,7 @@ form {
     justify-content: center;
     gap: 40px;
     max-width: 1000px;
-    margin: 0 auto;
+    margin: 40px auto;
   }
   
   /* Logo styling */
@@ -860,7 +871,7 @@ form {
   }
   
   .about-me-logo img {
-    max-width: 200px;
+    max-width: 250px;
     width: 100%;
     height: auto;
     border-radius: 30px;
@@ -885,79 +896,4 @@ form {
       text-align: center;
     }
 
-  }
-  .slideshow-container {
-    position: relative;
-    max-width: 1000px;
-    margin: auto;
-    overflow: hidden;
-    border-radius: 12px;
-    padding-bottom: 70px;
-  }
-  
-  .mySlides {
-    display: none;
-  }
-  
-  .mySlides img {
-    width: 100%;
-    height: auto;
-    border-radius: 12px;
-  }
-  
-  /* Fade animation */
-  .fade {
-    animation: fadeEffect 1s;
-  }
-  
-  @keyframes fadeEffect {
-    from {opacity: 0.4;}
-    to {opacity: 1;}
-  }
-  
-  /* Navigation buttons */
-  .prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 12px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 28px;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    background-color: rgba(0,0,0,0.4);
-    transition: 0.3s;
-  }
-  
-  .next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-  }
-  
-  .prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-  }
-  
-  /* Responsive */
-  @media screen and (max-width: 768px) {
-    .prev, .next {
-      font-size: 22px;
-      padding: 8px;
-    }
-  }
-  .slideshow-text {
-    flex-direction: column;
-    text-align: center;
-    font-size: 100px;
-    margin-bottom: 50px;
-
-
-  }
-
-  hr {
-    border: dashed rgba(126, 126, 126, 0.253);
-    margin: 200px 20px;
   }
