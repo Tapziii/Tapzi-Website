@@ -10,6 +10,44 @@
     <link rel="stylesheet" href="styles.css">
 
     <style>
+
+            /* Hero Section */
+    .hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background: url('imgs/gulf.png') no-repeat center center/cover;
+
+    }
+
+    /* Parallax Effect */
+    .hero::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 30vh;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #131313 100%);
+    }
+
+    .hero h1 {
+        font-size: 3.5rem;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-shadow: 0 0 7px rgb(0, 0, 0);
+    }
+
+    .hero p {
+        font-size: 1.4rem;
+        max-width: 700px;
+        margin: 10px auto;
+        text-shadow: 0 0 7px rgb(0, 0, 0);
+    }
+
 .other-work-h3 {
     font-size: 2.5rem;
     color: var(--primary-color);
@@ -23,6 +61,9 @@
        </style>
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="page-transition">    </div>
+    
 
     <header>
         <nav>
@@ -40,7 +81,13 @@
             </div>
           </nav>
     </header>
-
+<!-- Hero Section -->
+<section class="hero">
+    <div>
+        <h1>Portfolio</h1>
+        <p>Handcrafted liveries made with precision, detail, and creativity.</p> 
+    </div>
+</section>
     <section id="about-me" class="about-me-section">
         <div class="about-me-content">
           <div class="about-me-logo">
@@ -59,10 +106,19 @@
 <section id="portfolio" class="portfolio-section">
     <h2 class="portfolio-heading">My Latest Work</h2>
     <div class="portfolio-grid">
+        <div class="portfolio-item">
+            <div class="portfolio-image">
+                <img src="imgs/Cebu Pacific.png" alt="Fenix Airbus A320 Cebu Pacific Air">
+            </div>
+            <div class="portfolio-details">
+                <h3 class="portfolio-name">Fenix Airbus A320 Cebu Pacific Air</h3>
+                <a href="https://flightsim.to/file/91250/fenix-airbus-a320-cebu-pacific-air-let-s-fly-every-juan-cabin-4k" download class="download-link">Download</a>
+            </div>
+        </div>
         <!-- Portfolio Item 1 -->
         <div class="portfolio-item">
             <div class="portfolio-image">
-                <img src="imgs/EL AL.png" alt="EL AL Livery">
+                <img src="imgs/LOT.png" alt="FSS E190 LOT Polish Airlines Pack">
             </div>
             <div class="portfolio-details">
                 <h3 class="portfolio-name">FSS E190 LOT Polish Airlines Pack</h3>
@@ -73,7 +129,7 @@
         <!-- Portfolio Item 2 -->
         <div class="portfolio-item">
             <div class="portfolio-image">
-                <img src="imgs/flydeal.png" alt="PMDG Boeing B737-800 EL AL New">
+                <img src="imgs/EL AL 2025.png" alt="PMDG Boeing B737-800 EL AL New">
             </div>
             <div class="portfolio-details">
                 <h3 class="portfolio-name">PMDG Boeing B737-800 EL AL New</h3>
@@ -84,7 +140,7 @@
         <!-- Portfolio Item 3 -->
         <div class="portfolio-item">
             <div class="portfolio-image">
-                <img src="imgs/Czech.png" alt="iniBuilds Airbus A350 Korean Air Pack">
+                <img src="imgs/KOREAN SIDE.png" alt="iniBuilds Airbus A350 Korean Air Pack">
             </div>
             <div class="portfolio-details">
                 <h3 class="portfolio-name">iniBuilds Airbus A350 Korean Air Pack</h3>
@@ -95,11 +151,20 @@
         <!-- Portfolio Item 4 -->
         <div class="portfolio-item">
             <div class="portfolio-image">
-                <img src="imgs/flydeal.png" alt="Fenix Airbus A320 AirAsia old">
+                <img src="imgs/Air Asia.png" alt="Fenix Airbus A320 AirAsia old">
             </div>
             <div class="portfolio-details">
                 <h3 class="portfolio-name">Fenix Airbus A320 AirAsia old</h3>
                 <a href="https://flightsim.to/file/89181/fenix-airbus-a320-airasia-old-cabin-4k" download class="download-link">Download</a>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <div class="portfolio-image">
+                <img src="imgs/TAP.png" alt="TAP Air Portugal A319 Fleet">
+            </div>
+            <div class="portfolio-details">
+                <h3 class="portfolio-name">Fenix A319 TAP Air Portugal Fleet</h3>
+                <a href="https://flightsim.to/file/88135/fenix-airbus-a319-tap-air-portugal-fleet-pack-4k" download class="download-link">Download</a>
             </div>
         </div>
     </div>
@@ -121,7 +186,7 @@
         <!-- Featured Livery Item 2 -->
         <div class="portfolio-item">
             <div class="portfolio-image">
-                <img src="imgs/flydeal.png" alt="Finnair A321 Fleet">
+                <img src="imgs/Finnair.png" alt="Finnair A321 Fleet">
             </div>
             <div class="portfolio-details">
                 <h3 class="portfolio-name">Fenix A321 Finnair Fleet</h3>
@@ -132,18 +197,35 @@
         <!-- Featured Livery Item 3 -->
         <div class="portfolio-item">
             <div class="portfolio-image">
-                <img src="imgs/Czech.png" alt="TAP Air Portugal A319 Fleet">
+                <img src="imgs/TAP.png" alt="TAP Air Portugal A319 Fleet">
             </div>
             <div class="portfolio-details">
                 <h3 class="portfolio-name">Fenix A319 TAP Air Portugal Fleet</h3>
                 <a href="https://flightsim.to/file/88135/fenix-airbus-a319-tap-air-portugal-fleet-pack-4k" download class="download-link">Download</a>
             </div>
         </div>
-
-        <!-- Featured Livery Item 4 -->
         <div class="portfolio-item">
             <div class="portfolio-image">
-                <img src="imgs/Czech.png" alt="Horizon Sim Boeing B787-9 LATAM Airlines Brazil">
+                <img src="imgs/Hainan Pepsi.png" alt="PMDG Boeing B738 Hainan Airlines Pepsi">
+            </div>
+            <div class="portfolio-details">
+                <h3 class="portfolio-name">PMDG Boeing B738 Hainan Airlines Pepsi</h3>
+                <a href="https://flightsim.to/file/52403/pmdg-boeing-b737-800-hainan-airlines-pepsi-4k" download class="download-link">Download</a>
+            </div>
+        </div>
+        <div class="portfolio-item">
+            <div class="portfolio-image">
+                <img src="imgs/CZECH AIRLINES 100 YEARS.png" alt="Fenix Airbus A320 Czech Airlines">
+            </div>
+            <div class="portfolio-details">
+                <h3 class="portfolio-name">Fenix Airbus A320 Czech Airlines</h3>
+                <a href="https://flightsim.to/file/58960/fenix-airbus-a320-czech-airlines-100-years-sticker-4k" download class="download-link">Download</a>
+            </div>
+        </div>
+        <!-- Featured Livery Item 6 -->
+        <div class="portfolio-item">
+            <div class="portfolio-image">
+                <img src="imgs/LATAM.png" alt="Horizon Sim Boeing B787-9 LATAM Airlines Brazil">
             </div>
             <div class="portfolio-details">
                 <h3 class="portfolio-name">Horizon Sim Boeing B789 LATAM Brazil</h3>
@@ -188,16 +270,16 @@
     <h3>Painted Liveries For</h3>
     <div class="portfolio-info-grid-painted">
         <div class="portfolio-info-item">
-            <a href="https://discord.gg/UPE5BnuRKF" target="_blank">
-                <img src="imgs/British-Avgeek.png" alt="Client 2">
-            </a>
-            <p>British Avgeek - Osprey Airways</p>
-        </div>
-        <div class="portfolio-info-item">
             <a href="https://discord.gg/QdqAs3usPd" target="_blank">
                 <img src="imgs/Infromation-alpha.png" alt="Client 1">
             </a>
             <p>Information alpha</p>
+        </div>
+        <div class="portfolio-info-item">
+            <a href="https://discord.gg/UPE5BnuRKF" target="_blank">
+                <img src="imgs/British-Avgeek.png" alt="Client 2">
+            </a>
+            <p>British Avgeek - Osprey Airways</p>
         </div>
         <div class="portfolio-info-item">
             <img src="imgs/DefaultAvatar.png" alt="Brand 2">
@@ -231,7 +313,7 @@
         </div>
         
         <div class="footer-bottom" style="text-align: center; margin-top: 10px; font-size: 0.85em; color: #ffffff; font-size: 1rem;">
-          <a href="/privacy-policy.html" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 1rem;">Privacy Policy</a>
+          <a href="privacy-policy.html" style="color: #ffffff; text-decoration: none; font-size: 1rem;">Privacy Policy</a>
       </div>
       
         <div class="footer-center">
@@ -264,7 +346,7 @@
     </div>
   </footer>
 
-  
+
   <script>
     function togglePopup() {
       document.getElementById("popup-overlay").classList.add("show");
@@ -281,6 +363,52 @@
     navLinks.classList.toggle('show');
   });
 
+
+  
+  
+      // Show loading screen until the page is fully loaded
+      window.addEventListener('load', () => {
+        const loadingScreen = document.getElementById('loading-screen');
+        loadingScreen.style.display = 'none'; // Hide loading screen once page is loaded
+        document.body.classList.add('loaded'); // Trigger slide-in effect
+    });
+
+    // Handle the slide-out effect before page navigation
+    document.querySelectorAll('a').forEach(link => {
+        const isSamePageAnchor = link.href.startsWith('#');
+        const isExternal = link.target === '_blank' || link.hostname !== location.hostname;
+
+        if (!isSamePageAnchor && !isExternal) {
+            link.addEventListener('click', function (e) {
+                e.preventDefault(); // Prevent immediate navigation
+                document.body.classList.add('slide-out'); // Trigger slide-out effect
+
+                // Delay navigation to allow the slide-out effect to complete
+                setTimeout(() => {
+                    window.location = this.href;
+                }, 500); // Match the slide-out time (0.5s)
+            });
+        }
+    });
+
+
+    
+    document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("page-loaded");
+});
+
+document.querySelectorAll("a").forEach(link => {
+  if (link.href && !link.href.startsWith("#") && !link.target) {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      document.body.classList.remove("page-loaded");
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location = link.href;
+      }, 500); // match the fade-out transition
+    });
+  }
+});
     </script>
 </body>
 </html>

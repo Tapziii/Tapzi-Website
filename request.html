@@ -15,10 +15,9 @@
         margin: 0;
         padding: 0;
         font-family: 'Palanquin Dark', sans-serif;
-        background: #0a0a0a;
+        background: #131313;
         color: white;
         overflow-x: hidden;
-        transition: background 0.5s ease-in-out;
     }
 
     /* Hero Section */
@@ -29,7 +28,8 @@
         justify-content: center;
         align-items: center;
         text-align: center;
-        background: url('imgs/Osprey.png') no-repeat center center/cover;
+        background: url('imgs/cebu.png') no-repeat center center/cover;
+
     }
 
     /* Parallax Effect */
@@ -40,7 +40,7 @@
         left: 0;
         width: 100%;
         height: 30vh;
-        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #0a0a0a 100%);
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, #131313 100%);
     }
 
     /* Wavy Divider */
@@ -62,14 +62,14 @@
         font-size: 3.5rem;
         letter-spacing: 2px;
         text-transform: uppercase;
-        text-shadow: 0 0 20px rgba(0, 0, 0, 0.63);
+        text-shadow: 0 0 7px rgb(0, 0, 0);
     }
 
     .hero p {
         font-size: 1.4rem;
         max-width: 700px;
         margin: 10px auto;
-        text-shadow: 0 0 20px rgba(0, 0, 0, 0.63);
+        text-shadow: 0 0 7px rgb(0, 0, 0);
     }
 
     .cta {
@@ -130,28 +130,6 @@
         transform: scale(1.05);
     }
 
-    /* Floating Background Text */
-    .floating-text {
-        position: absolute;
-        font-size: 5rem;
-        font-weight: bold;
-        opacity: 0.08;
-        z-index: -1;
-        text-transform: uppercase;
-        transition: transform 0.5s ease-in-out;
-    }
-
-    .floating-text-left {
-        left: -10%;
-        top: 20%;
-        transform: rotate(-10deg);
-    }
-
-    .floating-text-right {
-        right: -10%;
-        bottom: 20%;
-        transform: rotate(10deg);
-    }
 
     /* Alternating Sections */
     .request-section:nth-child(even) {
@@ -299,15 +277,13 @@
   </nav>
   
 </header>
-
+    <!-- Loading Screen -->
+    <div id="page-transition">
 <!-- Hero Section -->
 <section class="hero">
     <div>
         <h1>Request a Livery</h1>
-        <p>Handcrafted liveries made with precision, detail, and creativity.</p>
-        <div class="cta-button-container">
-          <a href="#request-section" class="cta-button">Get Started</a>
-        </div>   
+        <p>The page to request a livery.</p> 
     </div>
 </section>
 <!-- Container where icons will be placed -->
@@ -317,10 +293,10 @@
     <div class="request-panel">
         <h2>Real Livery Request</h2>
         <p>Do you want an accurate real-world airline livery for MSFS or X Plane?<br> I specialize in recreating liveries as close to reality as possible, including:  <br>
-        - Retired or Historic Liveries  <br>
         - Current Liveries  <br>
         - Special Liveries  <br>
-        If you want to request a real livery, fill the form below
+        - Retired or Historic Liveries  <br>
+        If you want to request a livery, fill the form below
       </p>
     </div>
     <div class="request-panel">
@@ -331,7 +307,7 @@
  action="https://formspree.io/f/mgvanldw"
  method="POST"
  enctype="multipart/form-data" >
- <h2 class="form-h2">Real Livery Request Form</h2><br>
+ <h2 class="form-h2">Livery Request Form</h2><br>
 
  <label for="simulator"><span class="required">*</span>Simulator:</label><br>
  <select name="Simulator" id="simulator" required>
@@ -390,7 +366,7 @@
         </div>
         
         <div class="footer-bottom" style="text-align: center; margin-top: 10px; font-size: 0.85em; color: #ffffff; font-size: 1rem;">
-          <a href="/privacy-policy.html" target="_blank" style="color: #ffffff; text-decoration: none; font-size: 1rem;">Privacy Policy</a>
+          <a href="privacy-policy.html" style="color: #ffffff; text-decoration: none; font-size: 1rem;">Privacy Policy</a>
       </div>
       
         <div class="footer-center">
@@ -399,7 +375,7 @@
                 <p><strong>Email:</strong> <a href="mailto:tapziworld@gmail.com">tapziworld@gmail.com</a></p>
             </div>
         </div>
-  
+
         <div class="footer-right">
             <div class="social-links">
                 <a href="https://www.youtube.com/@Tapzi" target="_blank" class="social-icon youtube">
@@ -422,6 +398,7 @@
         </div>
     </div>
   </footer>
+
 
 
 <script>
@@ -531,6 +508,25 @@ function showSlides(n) {
 
 document.addEventListener("DOMContentLoaded", showSlidesAuto);
 
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.classList.add("page-loaded");
+});
+
+document.querySelectorAll("a").forEach(link => {
+  if (link.href && !link.href.startsWith("#") && !link.target) {
+    link.addEventListener("click", e => {
+      e.preventDefault();
+      document.body.classList.remove("page-loaded");
+      document.body.classList.add("fade-out");
+      setTimeout(() => {
+        window.location = link.href;
+      }, 500); // match the fade-out transition
+    });
+  }
+});
   </script>
   
 

@@ -42,4 +42,3 @@ document.addEventListener("DOMContentLoaded", () => {
 
     requestCards.forEach(card => observer.observe(card));
 });
-
